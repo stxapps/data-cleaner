@@ -1,0 +1,23 @@
+{
+  "name": "data-cleaner",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "cleanVerifyLog": "GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/legacy_credentials/brace@brace.to/iap-001-73d0b5165508.json node --import=specifier-resolution-node/register src/cleanVerifyLog.js --dry-run",
+    "cleanNotifyLog": "GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/legacy_credentials/brace@brace.to/iap-001-73d0b5165508.json node --import=specifier-resolution-node/register src/cleanNotifyLog.js --dry-run",
+    "cleanAcknowledgeLog": "GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/legacy_credentials/brace@brace.to/iap-001-73d0b5165508.json node --import=specifier-resolution-node/register src/cleanAcknowledgeLog.js --dry-run",
+    "cleanBraceStaticFiles": "GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/legacy_credentials/brace@brace.to/adc.json node --import=specifier-resolution-node/register src/cleanBraceStaticFiles.js --dry-run",
+    "cleanExtract": "GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/legacy_credentials/brace@brace.to/adc.json node --import=specifier-resolution-node/register src/cleanExtract.js --dry-run",
+    "cleanExtractLog": "GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/legacy_credentials/brace@brace.to/adc.json node --import=specifier-resolution-node/register src/cleanExtractLog.js --dry-run",
+    "cleanDeletedSDriveHub": "GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/legacy_credentials/brace@brace.to/sdrive-001-adeb2f2dcdc2.json node --import=specifier-resolution-node/register src/cleanDeletedSDriveHub.js --dry-run",
+    "cleanSDriveHub": "GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/legacy_credentials/brace@brace.to/sdrive-001-adeb2f2dcdc2.json node --import=specifier-resolution-node/register src/cleanSDriveHub.js --dry-run",
+    "cleanFileLog": "GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/legacy_credentials/brace@brace.to/sdrive-001-adeb2f2dcdc2.json node --import=specifier-resolution-node/register src/cleanFileLog.js --dry-run",
+    "cleanFileWorkLog": "GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/legacy_credentials/brace@brace.to/sdrive-001-adeb2f2dcdc2.json node --import=specifier-resolution-node/register src/cleanFileWorkLog.js --dry-run"
+  },
+  "dependencies": {
+    "@google-cloud/datastore": "^8.7.0",
+    "@google-cloud/storage": "^7.11.1",
+    "specifier-resolution-node": "^1.1.4"
+  }
+}
