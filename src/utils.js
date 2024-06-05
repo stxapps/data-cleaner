@@ -29,3 +29,15 @@ export const extractPath = (path) => {
 
   return { address };
 };
+
+export const sampleConsoleLog = (values) => {
+  for (const value of values.slice(0, 3)) {
+    console.log(value);
+  }
+  if (values.length > 3) {
+    console.log('.\n.\n.');
+    for (const value of values.slice(Math.max(values.length - 3, 3), values.length)) {
+      console.log(value);
+    }
+  }
+};

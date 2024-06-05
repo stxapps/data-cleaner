@@ -1,5 +1,5 @@
 import dataApi from './data';
-import { randomString } from './utils';
+import { randomString, sampleConsoleLog } from './utils';
 
 const doDryRun = process.argv[2] === '--dry-run';
 
@@ -10,9 +10,7 @@ const main = async () => {
   console.log(`(${logKey}) doDryRun: ${doDryRun}`);
 
   const infos = await dataApi.getDeletedFileInfos();
-  if (infos.length > 0) {
-    for (const info of infos) console.log(info);
-  }
+  sampleConsoleLog(infos)
   console.log(`(${logKey}) Got ${infos.length} entities`);
   if (infos.length > 0) {
     if (!doDryRun) await dataApi.deleteSDriveHubBackUp(infos);

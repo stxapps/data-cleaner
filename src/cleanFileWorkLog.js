@@ -1,5 +1,5 @@
 import dataApi from './data';
-import { randomString } from './utils';
+import { randomString, sampleConsoleLog } from './utils';
 
 const doDryRun = process.argv[2] === '--dry-run';
 
@@ -10,9 +10,7 @@ const main = async () => {
   console.log(`(${logKey}) doDryRun: ${doDryRun}`);
 
   const logs = await dataApi.getObsoleteFileWorkLogs();
-  if (logs.length > 0) {
-    for (const log of logs) console.log(log);
-  }
+  sampleConsoleLog(logs);
   console.log(`(${logKey}) Got ${logs.length} entities`);
   if (logs.length > 0) {
     if (!doDryRun) await dataApi.deleteFileWorkLogs(logs);

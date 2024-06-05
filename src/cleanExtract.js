@@ -1,5 +1,5 @@
 import dataApi from './data';
-import { randomString } from './utils';
+import { randomString, sampleConsoleLog } from './utils';
 
 const doDryRun = process.argv[2] === '--dry-run';
 
@@ -10,9 +10,7 @@ const main = async () => {
   console.log(`(${logKey}) doDryRun: ${doDryRun}`);
 
   const extracts = await dataApi.getObsoleteExtracts();
-  if (extracts.length > 0) {
-    for (const extract of extracts) console.log(extract);
-  }
+  sampleConsoleLog(extracts);
   console.log(`(${logKey}) Got ${extracts.length} entities`);
   if (extracts.length > 0) {
     if (!doDryRun) await dataApi.deleteExtracts(extracts);
