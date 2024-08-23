@@ -241,7 +241,7 @@ const getDeletedFileInfos = async () => {
     new PropertyFilter('updateDate', '<', date),
   ])); // Need Composite Index Configuration in index.yaml in sdrive-hub
   query.order('updateDate', { descending: false });
-  query.limit(800);
+  query.limit(2400);
 
   const entities = await queryData(query, true);
 
@@ -292,7 +292,7 @@ const getObsoleteFileLogs = async () => {
   const query = datastore.createQuery(FILE_LOG);
   query.filter(new PropertyFilter('createDate', '<', date));
   query.order('createDate', { descending: false });
-  query.limit(2048);
+  query.limit(20480);
 
   const entities = await queryData(query, true);
 
