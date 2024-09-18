@@ -166,6 +166,25 @@ const deleteBraceStaticFiles = async () => {
   // Call deleteFiles. Not implemented.
 };
 
+const getExtractEntities = async (status) => {
+  const query = datastore.createQuery(EXTRACT);
+  query.filter(new PropertyFilter('status', '=', status));
+  query.limit(10000);
+
+  const entities = await queryData(query, true);
+
+  const extracts = [];
+  for (const entity of entities) {
+    const extract = {
+      name: entity[datastore.KEY].name,
+      status: entity.status,
+      extractDate: entity.extractDate,
+    };
+    extracts.push(extract);
+  }
+  return extracts;
+};
+
 const getObsoleteExtracts = async () => {
   const dt = Date.now() - (365 * 24 * 60 * 60 * 1000);
   const date = new Date(dt);
@@ -350,9 +369,10 @@ const deleteFileWorkLogs = async (logs) => {
 const data = {
   getObsoleteVerifyLogs, deleteVerifyLogs, getObsoleteNotifyLogs, deleteNotifyLogs,
   getObsoleteAcknowledgeLogs, deleteAcknowledgeLogs, getObsoleteBraceStaticFiles,
-  deleteBraceStaticFiles, getObsoleteExtracts, deleteExtracts, getObsoleteExtractLogs,
-  deleteExtractLogs, getDeletedFileInfos, deleteSDriveHubBackUp, deleteFileInfos,
-  getObsoleteFileLogs, deleteFileLogs, getObsoleteFileWorkLogs, deleteFileWorkLogs,
+  deleteBraceStaticFiles, getExtractEntities, getObsoleteExtracts, deleteExtracts,
+  getObsoleteExtractLogs, deleteExtractLogs, getDeletedFileInfos, deleteSDriveHubBackUp,
+  deleteFileInfos, getObsoleteFileLogs, deleteFileLogs, getObsoleteFileWorkLogs,
+  deleteFileWorkLogs,
 };
 
 export default data;
