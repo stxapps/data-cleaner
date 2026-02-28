@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@google-cloud/datastore": "^8.7.0",
-    "@google-cloud/storage": "^7.11.1",
+    "@google-cloud/storage": "^7.19.0",
     "specifier-resolution-node": "^1.1.4"
   }
 }
